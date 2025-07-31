@@ -1,0 +1,27 @@
+<template>
+  <div id="app" class="container">
+    <header class="header">
+      <img src="/logo.png" alt="Logo JR KEYS" class="logo" />
+      <h1 class="titulo">Painel de Sinais JR KEYS</h1>
+    </header>
+
+    <main class="conteudo">
+      <p class="status">🚀 Painel online e funcionando com sucesso!</p>
+    </main>
+
+    <footer class="rodape">
+      <p>© JR KEYS INFORMÁTICA • Todos os direitos reservados</p>
+      <a href="https://wa.me/5511940326142" target="_blank" class="botao-contato">Fale conosco</a>
+    </footer>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App'
+}
+</script>
+
+<style scoped>
+@import './style.css';
+</style>
