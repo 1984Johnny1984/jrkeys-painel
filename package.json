@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "jrkeys-painel",
   "version": "1.0.0",
   "description": "Painel de Sinais JR KEYS com Vue 3 + Vite + Supabase",
