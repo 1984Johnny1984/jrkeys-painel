@@ -1,18 +1,17 @@
 {
   "name": "jrkeys-painel",
   "version": "1.0.0",
-  "description": "Painel em tempo real JR KEYS com Vue 3, Supabase e WebSocket",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.39.4",
     "vue": "^3.4.21"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
-    "vite": "^5.2.10"
+    "vite": "^5.0.11"
   }
 }
