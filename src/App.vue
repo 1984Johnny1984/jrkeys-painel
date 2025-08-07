@@ -1,52 +1,16 @@
 <template>
-  <div class="container">
-    <h1>Painel JR KEYS Online ✅</h1>
-    <ul>
-      <li v-for="sinal in sinais" :key="sinal.id">
-        <strong>{{ sinal.par }}</strong> -
-        {{ sinal.direcao }} -
-        {{ sinal.estrategia }} -
-        {{ sinal.horario }}
-      </li>
-    </ul>
-  </div>
+  <router-view />
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import { supabase } from '../supabase.js'
-
-const sinais = ref([])
-
-onMounted(async () => {
-  const { data, error } = await supabase
-    .from('sinais')
-    .select('*')
-    .order('created_at', { ascending: false })
-    .limit(20)
-
-  if (error) {
-    console.error('Erro ao carregar sinais:', error)
-  } else {
-    console.log('Sinais recebidos:', data) // ← Isso mostrará no console do navegador
-    sinais.value = data
-  }
-})
+// Nenhum script necessário aqui neste momento
 </script>
 
 <style>
-.container {
-  padding: 20px;
+body {
+  margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  min-height: 100vh;
-}
-h1 {
-  color: #007bff;
-}
-li {
-  margin-bottom: 10px;
-  font-size: 16px;
-  list-style: none;
+  background: #f0f0f0;
 }
 </style>
