@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router'
+import router from './router' // importa o roteador
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App)
+app.use(router)              // liga o roteador na aplicação
+app.mount('#app')            // monta no <div id="app">

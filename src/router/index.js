@@ -1,42 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from '../components/login.vue'
-import Sinal from '../components/Sinal.vue'
-import Historico from '../components/Historico.vue'
+
+// Lazy load das views
+const Home = () => import('../App.vue')
+const Login = () => import('../views/Login.vue')
 
 const routes = [
-  {
-    path: '/',
-    name: 'Login',
-    component: Login
-  },
-  {
-    path: '/painel',
-    name: 'Painel',
-    component: Sinal,
-    meta: { requiresAuth: true }
-  },
-  {
-    path: '/historico',
-    name: 'Histórico',
-    component: Historico,
-    meta: { requiresAuth: true }
-  }
+  { path: '/login', name: 'login', component: Login },
+  { path: '/', name: 'home', component: Home },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
-// Proteção das rotas
+// Guard de autenticação
 router.beforeEach((to, from, next) => {
-  const isAuth = localStorage.getItem('auth') === 'true'
-
-  if (to.meta.requiresAuth && !isAuth) {
-    next({ path: '/' })
-  } else {
-    next()
+  const isAuth = localStorage.getItem('auth') === 'ok'
+  if (to.name !== 'login' && !isAuth) {
+    return next({ name: 'login' })
   }
+  next()
 })
 
 export default router
