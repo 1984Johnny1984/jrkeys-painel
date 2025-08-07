@@ -11,7 +11,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { supabase } from '../supabase.js' // caminho ajustado
+import { supabase } from '../supabase.js'
 
 const sinais = ref([])
 
@@ -19,7 +19,7 @@ onMounted(async () => {
   const { data, error } = await supabase
     .from('sinais')
     .select('*')
-    .order('timestamp', { ascending: false })
+    .order('created_at', { ascending: false })
     .limit(20)
 
   if (error) {
@@ -35,6 +35,7 @@ onMounted(async () => {
   padding: 20px;
   font-family: Arial, sans-serif;
   background: #f9f9f9;
+  min-height: 100vh;
 }
 h1 {
   color: #007bff;
@@ -42,5 +43,6 @@ h1 {
 li {
   margin-bottom: 10px;
   font-size: 16px;
+  list-style: none;
 }
 </style>
