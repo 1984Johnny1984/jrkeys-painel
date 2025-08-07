@@ -1,1 +1,0 @@
-document.getElementById('app').innerHTML = '<h1>Painel JR KEYS Online!</h1>';
