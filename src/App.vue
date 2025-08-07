@@ -3,7 +3,10 @@
     <h1>Painel JR KEYS Online ✅</h1>
     <ul>
       <li v-for="sinal in sinais" :key="sinal.id">
-        <strong>{{ sinal.par }}</strong> - {{ sinal.direcao }} - {{ sinal.estrategia }} - {{ sinal.horario }}
+        <strong>{{ sinal.par }}</strong> -
+        {{ sinal.direcao }} -
+        {{ sinal.estrategia }} -
+        {{ sinal.horario }}
       </li>
     </ul>
   </div>
@@ -25,6 +28,7 @@ onMounted(async () => {
   if (error) {
     console.error('Erro ao carregar sinais:', error)
   } else {
+    console.log('Sinais recebidos:', data) // ← Isso mostrará no console do navegador
     sinais.value = data
   }
 })
