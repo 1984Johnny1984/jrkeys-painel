@@ -1,14 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-// Lazy load das views
-const Sinal = () => import('../views/Sinal.vue')
-const Login = () => import('../views/Login.vue')
+// Importa as views
+import Login from '../views/Login.vue'
+import Sinal from '../views/Sinal.vue'
 
+// Define as rotas
 const routes = [
   { path: '/login', name: 'login', component: Login },
   { path: '/', name: 'home', component: Sinal }
 ]
 
+// Cria o roteador
 const router = createRouter({
   history: createWebHistory(),
   routes
