@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-// Importa as views
-const Login = () => import('../views/Login.vue')
+// Lazy load das views
 const Sinal = () => import('../views/Sinal.vue')
+const Login = () => import('../views/Login.vue')
 
 const routes = [
   { path: '/login', name: 'login', component: Login },
-  { path: '/', name: 'home', component: Sinal } // Home agora é o painel de sinais
+  { path: '/', name: 'home', component: Sinal }
 ]
 
 const router = createRouter({
