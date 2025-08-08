@@ -1,52 +1,73 @@
 <template>
-  <div class="painel">
+  <div class="painel-container">
     <h1>Painel JR KEYS Online ✅</h1>
 
-    <!-- Lista de sinais -->
-    <div v-if="sinais.length">
-      <div v-for="(sinal, index) in sinais" :key="index" class="sinal">
-        <strong>{{ sinal.par }}</strong> - {{ sinal.tipo }} - {{ sinal.horario }}
-      </div>
-    </div>
+    <section class="sinais">
+      <h2>Sinais Atuais</h2>
+      <ul>
+        <li v-for="(sinal, index) in sinais" :key="index">
+          <strong>{{ sinal.par }}</strong> - {{ sinal.tipo }} - {{ sinal.horario }}
+        </li>
+      </ul>
+    </section>
 
-    <div v-else>
-      <p>Carregando sinais...</p>
-    </div>
+    <section class="historico">
+      <h2>Histórico de Sinais</h2>
+      <ul>
+        <li v-for="(item, index) in historico" :key="index">
+          <strong>{{ item.par }}</strong> - {{ item.tipo }} - {{ item.horario }} - {{ item.resultado }}
+        </li>
+      </ul>
+    </section>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 
+// Estado dos sinais
 const sinais = ref([])
+const historico = ref([])
 
-onMounted(async () => {
-  try {
-    const response = await fetch('https://jrkeys-painel.vercel.app/sinais.json')
-    sinais.value = await response.json()
-  } catch (error) {
-    console.error('Erro ao carregar sinais:', error)
-  }
+onMounted(() => {
+  // Simulação de sinais (você pode substituir por integração real depois)
+  sinais.value = [
+    { par: 'EUR/USD', tipo: 'CALL', horario: '21:40' },
+    { par: 'GBP/USD', tipo: 'PUT', horario: '21:45' }
+  ]
+
+  historico.value = [
+    { par: 'EUR/USD', tipo: 'CALL', horario: '21:30', resultado: 'WIN' },
+    { par: 'GBP/USD', tipo: 'PUT', horario: '21:25', resultado: 'LOSS' }
+  ]
 })
 </script>
 
 <style scoped>
-.painel {
+.painel-container {
   max-width: 800px;
-  margin: 20px auto;
+  margin: 0 auto;
   padding: 20px;
-  background: #111827;
-  color: white;
-  border-radius: 10px;
 }
 
 h1 {
   text-align: center;
-  color: #00aaff;
+  margin-bottom: 20px;
 }
 
-.sinal {
+.sinais, .historico {
+  margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f8f8f8;
   padding: 10px;
-  border-bottom: 1px solid #333;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 </style>
