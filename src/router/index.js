@@ -1,16 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const Home = () => import('../views/Sinal.vue')
+// Importa as views
 const Login = () => import('../views/Login.vue')
+const Sinal = () => import('../views/Sinal.vue')
 
 const routes = [
   { path: '/login', name: 'login', component: Login },
-  { path: '/', name: 'home', component: Home },
+  { path: '/', name: 'home', component: Sinal } // Home agora é o painel de sinais
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes
 })
 
 // Guard de autenticação
