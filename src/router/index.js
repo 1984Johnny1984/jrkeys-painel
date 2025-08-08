@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-// Lazy load das views
-const Home = () => import('../components/sinal.vue')
+const Home = () => import('../views/Sinal.vue')
 const Login = () => import('../views/Login.vue')
 
 const routes = [
