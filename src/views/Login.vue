@@ -30,7 +30,7 @@ const code = ref('')
 const erro = ref(false)
 
 // 🔧 Altere este código para o que você quiser
-const ACCESS_CODE = '2468'
+const ACCESS_CODE = '911549Jo@&$'
 
 function entrar() {
   if (code.value.trim() === ACCESS_CODE) {
